@@ -33,7 +33,7 @@ public class FirstPersonMovement : MonoBehaviour
         
         inputVector = inputVector.normalized;
 
-        Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
+        Vector3 moveDirection = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")).normalized;
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
         
     }

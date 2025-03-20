@@ -612,7 +612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   mouseSensitivity: 2
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 2008199879}
 --- !u!114 &1142839337
 MonoBehaviour:
   m_ObjectHideFlags: 0
