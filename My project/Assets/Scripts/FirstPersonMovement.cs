@@ -7,9 +7,10 @@ public class FirstPersonMovement : MonoBehaviour
     private float fastSpeed = 6f;
     private float baseSpeed = 4f;
     private float jumpForce = 5f;
+    private Animator animator;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -20,33 +21,44 @@ public class FirstPersonMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = slowSpeed;
-        } else if (Input.GetKey(KeyCode.LeftControl))
+        } 
+        else if (Input.GetKey(KeyCode.LeftControl))
         {
             moveSpeed = fastSpeed;
+            animator.SetBool("Sprint", true);
         }
         else
         {
             moveSpeed = baseSpeed;
+            animator.SetBool("Sprint", false);
         }
         
         if (Input.GetKey(KeyCode.W))
         {
             inputVector.y += 1;
-        }
-        if (Input.GetKey(KeyCode.S))
+            animator.SetBool("Forward", true);
+        } else if (Input.GetKey(KeyCode.S))
         {
             inputVector.y -= 1;
-        }
-
-        if (Input.GetKey(KeyCode.A))
+            animator.SetBool("Backward", true);
+        } else if (Input.GetKey(KeyCode.A))
         {
             inputVector.x -= 1;
-        }
-
-        if (Input.GetKey(KeyCode.D))
+            animator.SetBool("Left", true);
+        } else if (Input.GetKey(KeyCode.D))
         {
             inputVector.x += 1;
+            animator.SetBool("Right", true);
         }
+        else
+        {
+            animator.SetBool("Forward", false);
+            animator.SetBool("Backward", false);
+            animator.SetBool("Left", false);
+            animator.SetBool("Right", false);
+            animator.Play("Idle");
+        }
+
         
         inputVector = inputVector.normalized;
 
