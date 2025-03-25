@@ -5,13 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
-<<<<<<< HEAD
   - System
-=======
   - mainPlayer
   - DialogueCanvas
   - DialogueText
->>>>>>> 7c610d1e7c4c822f42bfbac00e8d0588c61b9ae4
   layers:
   - Default
   - TransparentFX
