@@ -5,14 +5,22 @@ public class ZombieAI : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Transform player;
-    public float attackRange = 2f; // Range to attack player
-    public float attackCooldown = 1.5f; // Time between attacks
-    public int damage = 10; // Damage per attack
+
+    [Header("Combat")]
+    public float attackRange = 2f;
+    public float attackCooldown = 1.5f;
+    public int damage = 10;
 
     private float lastAttackTime;
 
+    [Header("Health")]
+    public float maxHealth = 50f;
+    private float currentHealth;
+
     void Start()
     {
+        currentHealth = maxHealth;
+
         agent = GetComponent<NavMeshAgent>();
 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -53,5 +61,22 @@ public class ZombieAI : MonoBehaviour
                 playerHealth.TakeDamage(damage);
             }
         }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        Debug.Log("Zombie took damage: " + amount + " | Current Health: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+        Debug.Log("Zombie Died!");
     }
 }
