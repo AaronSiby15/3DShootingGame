@@ -45,7 +45,7 @@ public class NPCDialogue : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("mainPlayer")) // Use tag "Player" on your player GameObject
+        if (other.CompareTag("Player")) // Use tag "Player" on your player GameObject
         {
             dialogueZone = true;
         }
@@ -53,7 +53,7 @@ public class NPCDialogue : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("mainPlayer"))
+        if (other.CompareTag("Player"))
         {
             dialogueZone = false;
         }
