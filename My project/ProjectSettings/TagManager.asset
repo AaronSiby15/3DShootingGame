@@ -13,6 +13,8 @@ TagManager:
   - levelTag
   - xpTag
   - healthTag
+  - xpGem
+  - progresionCanvas
   layers:
   - Default
   - TransparentFX

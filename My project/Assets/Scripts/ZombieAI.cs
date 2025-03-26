@@ -1,15 +1,18 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class ZombieAI : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Transform player;
+   
 
     [Header("Combat")]
     public float attackRange = 2f;
     public float attackCooldown = 1.5f;
     public int damage = 10;
+    public GameObject xpGem;
 
     private float lastAttackTime;
 
@@ -70,13 +73,26 @@ public class ZombieAI : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            
             Die();
         }
     }
 
     void Die()
+{
+    GameObject xpGemPrefab = Resources.Load<GameObject>("xpSphere");
+
+    if (xpGemPrefab != null)
     {
-        Destroy(gameObject);
-        Debug.Log("Zombie Died!");
+        Instantiate(xpGemPrefab, transform.position + Vector3.up, Quaternion.identity);
+        Debug.Log("Spawned XP Gem");
     }
+    else
+    {
+        Debug.LogError("Could not load xpGem prefab from Resources!");
+    }
+
+    Destroy(gameObject);
+    Debug.Log("Zombie Died!");
+}
 }
