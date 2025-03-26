@@ -1,2 +1,12 @@
 fileFormatVersion: 2
 guid: 38ab5b2e2b264e642a6bff713227052f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - xpGem: {fileID: 8040786603317731001, guid: 82bc25878c2043c4ca9fc2f4bd287a62, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
