@@ -9,6 +9,7 @@ TagManager:
   - mainPlayer
   - DialogueCanvas
   - DialogueText
+  - Zombie
   layers:
   - Default
   - TransparentFX
