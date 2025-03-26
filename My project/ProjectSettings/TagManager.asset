@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ground
   - System
+  - mainPlayer
+  - DialogueCanvas
+  - DialogueText
+  - Zombie
   layers:
   - Default
   - TransparentFX
