@@ -380,7 +380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '00
+  m_text: '0
 
 '
   m_isRightToLeft: 0
@@ -1351,7 +1351,7 @@ GameObject:
   - component: {fileID: 1179871396}
   - component: {fileID: 1179871395}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: healthTag
   m_TagString: healthTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 1586657470}
   - component: {fileID: 1586657469}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: maxHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2086,7 +2086,7 @@ GameObject:
   - component: {fileID: 2008852614}
   - component: {fileID: 2008852613}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
