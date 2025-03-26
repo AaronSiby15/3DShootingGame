@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class newDialogue : MonoBehaviour
 {
+    bool dialogueZone = false;
     int index = 3;
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && transform.childCount > 9)
+        if (Input.GetKeyDown(KeyCode.F) && transform.childCount > 9)
         {
             // Hide all dialogue lines
             for (int i = 2; i < transform.childCount; i++)
