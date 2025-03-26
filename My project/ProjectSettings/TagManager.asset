@@ -15,6 +15,7 @@ TagManager:
   - healthTag
   - xpGem
   - progresionCanvas
+  - dialogueCanvas
   layers:
   - Default
   - TransparentFX

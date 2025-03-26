@@ -481,7 +481,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 474230705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9625aeb7172fa54ba7334455de3f200, type: 3}
+  m_Script: {fileID: 11500000, guid: c810019afaf7f3e4088f3239a3cc3d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   d_template: {fileID: 630745194}
@@ -682,11 +682,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 591753390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9625aeb7172fa54ba7334455de3f200, type: 3}
+  m_Script: {fileID: 11500000, guid: c810019afaf7f3e4088f3239a3cc3d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  d_template: {fileID: 0}
-  canva: {fileID: 0}
+  d_template: {fileID: 630745194}
+  canva: {fileID: 1514620982}
 --- !u!1 &630745194
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 630745195}
   m_Layer: 5
   m_Name: DialogueTemplate
-  m_TagString: DialogueCanvas
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1058,11 +1058,9 @@ GameObject:
   - component: {fileID: 1514620985}
   - component: {fileID: 1514620984}
   - component: {fileID: 1514620983}
-  - component: {fileID: 1514620987}
-  - component: {fileID: 1514620988}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: DialogueCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1150,32 +1148,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1514620987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514620982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9625aeb7172fa54ba7334455de3f200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  d_template: {fileID: 630745194}
-  canva: {fileID: 1514620982}
---- !u!114 &1514620988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514620982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758056bee2ae0fd4db233d6e5151e30f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1976608838
 GameObject:
   m_ObjectHideFlags: 0
