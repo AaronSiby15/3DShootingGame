@@ -10,6 +10,9 @@ TagManager:
   - DialogueCanvas
   - DialogueText
   - Zombie
+  - levelTag
+  - xpTag
+  - healthTag
   layers:
   - Default
   - TransparentFX
