@@ -99,7 +99,7 @@ public abstract class DialogueManager : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("mainPlayer"))
+        if (other.CompareTag("Player"))
         {
             dialogueZone = true;
         }
@@ -107,7 +107,7 @@ public abstract class DialogueManager : MonoBehaviour
 
     protected virtual void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("mainPlayer"))
+        if (other.CompareTag("Player"))
         {
             dialogueZone = false;
         }

@@ -41,7 +41,7 @@ public class CityDialogue : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("mainPlayer"))
+        if (other.CompareTag("Player"))
         {
             dialogueZone = true;
         }
@@ -49,7 +49,7 @@ public class CityDialogue : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("mainPlayer"))
+        if (other.CompareTag("Player"))
         {
             dialogueZone = false;
         }
