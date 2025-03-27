@@ -36,33 +36,56 @@ public class FirstPersonMovement : MonoBehaviour
         {
             moveSpeed = baseSpeed;
             animator.SetBool("Sprint", false);
+            cancelAnimations();
         }
 
         // Movement input & animations
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("Left", true);
+        } else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("Right", true);
+        }
+        else
+        {
+            cancelAnimations();
+        }
         if (Input.GetKey(KeyCode.W))
         {
             inputVector.y += 1;
             animator.SetBool("Forward", true);
-        } else if (Input.GetKey(KeyCode.S))
+        }
+        else
+        {
+            cancelAnimations();
+        }
+        if (Input.GetKey(KeyCode.S))
         {
             inputVector.y -= 1;
             animator.SetBool("Backward", true);
-        } else if (Input.GetKey(KeyCode.A))
+        }
+        else
+        {
+            cancelAnimations();
+        }
+        if (Input.GetKey(KeyCode.A))
         {
             inputVector.x -= 1;
             animator.SetBool("Left", true);
-        } else if (Input.GetKey(KeyCode.D))
+        }
+        else
+        {
+            cancelAnimations();
+        }
+        if (Input.GetKey(KeyCode.D))
         {
             inputVector.x += 1;
             animator.SetBool("Right", true);
         }
         else
         {
-            animator.SetBool("Forward", false);
-            animator.SetBool("Backward", false);
-            animator.SetBool("Left", false);
-            animator.SetBool("Right", false);
-            animator.Play("Idle");
+            cancelAnimations();
         }
 
 
@@ -94,6 +117,20 @@ public class FirstPersonMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+    }
+
+    private void cancelAnimations()
+    {
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) &&
+            !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift) &&
+            !Input.GetKey(KeyCode.LeftControl))
+        {
+            animator.SetBool("Forward", false);
+            animator.SetBool("Backward", false);
+            animator.SetBool("Left", false);
+            animator.SetBool("Right", false);
+            animator.Play("Idle");
         }
     }
 }
