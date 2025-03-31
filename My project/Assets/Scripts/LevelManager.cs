@@ -17,12 +17,5 @@ public class LevelManager : MonoBehaviour
             LoadNextLevel();
         }
     }
-    
-    //Vector3 respawnPoint = new Vector3(0, 1, 0); // Set your spawn position
-
-    //void RespawnPlayer(GameObject player)
-    //{
-    //    player.transform.position = respawnPoint;
-    //}
 
 }

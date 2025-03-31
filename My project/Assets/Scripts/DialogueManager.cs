@@ -88,7 +88,7 @@ public abstract class DialogueManager : MonoBehaviour
         dialogueLines.Add(line);
     }
 
-    void EndDialogue()
+    protected virtual void EndDialogue()
     {
         canva.SetActive(false);
         currentIndex = 0;

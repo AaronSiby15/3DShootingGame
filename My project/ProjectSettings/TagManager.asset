@@ -23,6 +23,7 @@ TagManager:
   - Energy
   - MetalPile
   - Pistol
+  - Lvl1Gem
   layers:
   - Default
   - TransparentFX

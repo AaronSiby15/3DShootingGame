@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using TMPro; // ✅ Use TextMeshProUGUI instead of legacy UI.Text
+using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
@@ -8,12 +8,14 @@ public class WaveManager : MonoBehaviour
 
     public Transform[] spawnPoints;
     public GameObject zombiePrefab;
+    public GameObject lvl1Gem; 
 
     private int[] zombiesPerWave = { 1, 7, 20 };
     private int currentWaveIndex = 0;
     private int zombiesAlive = 0;
 
-    private TextMeshProUGUI waveText; 
+    private TextMeshProUGUI waveText;
+
     void Awake()
     {
         Instance = this;
@@ -24,11 +26,17 @@ public class WaveManager : MonoBehaviour
         GameObject waveTextObj = GameObject.FindGameObjectWithTag("currentWave");
         if (waveTextObj != null)
         {
-            waveText = waveTextObj.GetComponent<TextMeshProUGUI>(); 
+            waveText = waveTextObj.GetComponent<TextMeshProUGUI>();
         }
         else
         {
             Debug.LogError("No UI element found with tag 'currentWave'");
+        }
+
+        
+        if (lvl1Gem != null)
+        {
+            lvl1Gem.SetActive(false);
         }
 
         StartCoroutine(StartNextWave());
@@ -52,6 +60,12 @@ public class WaveManager : MonoBehaviour
         else
         {
             Debug.Log("All waves complete!");
+
+            if (lvl1Gem != null)
+            {
+                lvl1Gem.SetActive(true); 
+                Debug.Log("Lvl1Gem activated!");
+            }
         }
     }
 
@@ -83,7 +97,7 @@ public class WaveManager : MonoBehaviour
     {
         if (waveText != null)
         {
-            waveText.text = waveNumber.ToString(); 
+            waveText.text = waveNumber.ToString();
             Debug.Log("Updated wave number to: " + waveNumber);
         }
     }

@@ -1,3 +1,5 @@
+using UnityEngine.SceneManagement;
+
 public class IntroNPC : DialogueManager
 {
     protected override string[] GetDialogueLines()
@@ -20,5 +22,11 @@ public class IntroNPC : DialogueManager
             "NPC: But be wary of a traps!",
             "NPC: Good luck on your journey, Player!"
         };
+    }
+    
+    protected override void EndDialogue()
+    {
+        base.EndDialogue(); // Keep the original cleanup logic
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load the next scene
     }
 }
