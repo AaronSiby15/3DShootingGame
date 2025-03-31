@@ -5,8 +5,10 @@ using System.Collections.Generic;
 public abstract class DialogueManager : MonoBehaviour
 {
     protected bool dialogueZone = false;
-    public GameObject d_template; 
-    public GameObject canva;      
+    
+    [Header("Assign in Inspector")]
+    public GameObject d_template; // Assign the text template prefab
+    public GameObject canva; // Assign a unique Canvas per NPC
 
     private List<GameObject> dialogueLines = new List<GameObject>();
     private int currentIndex = 0;
@@ -28,6 +30,14 @@ public abstract class DialogueManager : MonoBehaviour
 
     void StartDialogue()
     {
+        // Disable all other NPC dialogues
+        GameObject[] allCanvases = GameObject.FindGameObjectsWithTag("DialogueCanvas");
+        foreach (GameObject canvas in allCanvases)
+        {
+            canvas.SetActive(false);
+        }
+
+        // Activate only THIS NPC's Canvas
         canva.SetActive(true);
         ClearOldDialogue();
 
@@ -39,12 +49,11 @@ public abstract class DialogueManager : MonoBehaviour
         }
 
         currentIndex = 0;
-        ToggleLine(currentIndex, true); 
+        ToggleLine(currentIndex, true);
     }
 
     void AdvanceDialogue()
     {
-        
         if (currentIndex < dialogueLines.Count)
         {
             ToggleLine(currentIndex, false);
@@ -52,7 +61,6 @@ public abstract class DialogueManager : MonoBehaviour
 
         currentIndex++;
 
-        
         if (currentIndex < dialogueLines.Count)
         {
             ToggleLine(currentIndex, true);
@@ -99,7 +107,7 @@ public abstract class DialogueManager : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("mainPlayer"))
+        if (other.CompareTag("Player"))
         {
             dialogueZone = true;
         }
@@ -107,9 +115,10 @@ public abstract class DialogueManager : MonoBehaviour
 
     protected virtual void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("mainPlayer"))
+        if (other.CompareTag("Player"))
         {
             dialogueZone = false;
+            EndDialogue(); // Hide dialogue when the player leaves
         }
     }
 }
