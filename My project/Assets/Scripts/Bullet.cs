@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
         if (zombie != null)
         {
             zombie.TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }
