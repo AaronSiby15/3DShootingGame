@@ -17,6 +17,12 @@ TagManager:
   - progresionCanvas
   - dialogueCanvas
   - currentWave
+  - metallItem
+  - GunPowder
+  - Tool
+  - Energy
+  - MetalPile
+  - Pistol
   layers:
   - Default
   - TransparentFX
