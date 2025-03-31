@@ -13,6 +13,7 @@ public abstract class DialogueManager : MonoBehaviour
     private List<GameObject> dialogueLines = new List<GameObject>();
     private int currentIndex = 0;
     private bool dialogueStarted = false;
+    private bool hasTalked = false; // Track if the player has talked to this NPC
 
     protected virtual void Update()
     {
@@ -30,14 +31,12 @@ public abstract class DialogueManager : MonoBehaviour
 
     void StartDialogue()
     {
-        // Disable all other NPC dialogues
         GameObject[] allCanvases = GameObject.FindGameObjectsWithTag("DialogueCanvas");
         foreach (GameObject canvas in allCanvases)
         {
             canvas.SetActive(false);
         }
 
-        // Activate only THIS NPC's Canvas
         canva.SetActive(true);
         ClearOldDialogue();
 
@@ -101,6 +100,13 @@ public abstract class DialogueManager : MonoBehaviour
         canva.SetActive(false);
         currentIndex = 0;
         dialogueStarted = false;
+
+        // Only count this NPC once
+        if (!hasTalked)
+        {
+            hasTalked = true;
+            NPCTracker.Instance.NPCInteracted();
+        }
     }
 
     protected abstract string[] GetDialogueLines();
@@ -118,7 +124,7 @@ public abstract class DialogueManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             dialogueZone = false;
-            EndDialogue(); // Hide dialogue when the player leaves
+            EndDialogue();
         }
     }
 }
