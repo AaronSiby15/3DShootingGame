@@ -16,6 +16,7 @@ TagManager:
   - xpGem
   - progresionCanvas
   - dialogueCanvas
+  - currentWave
   layers:
   - Default
   - TransparentFX

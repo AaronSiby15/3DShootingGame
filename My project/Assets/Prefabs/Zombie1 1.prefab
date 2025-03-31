@@ -2743,7 +2743,7 @@ GameObject:
   - component: {fileID: 5118005115543990718}
   m_Layer: 0
   m_Name: Zombie1 1
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2815,6 +2815,8 @@ MonoBehaviour:
   attackRange: 2
   attackCooldown: 1.5
   damage: 10
+  xpGem: {fileID: 0}
+  maxHealth: 50
 --- !u!195 &5118005115543990718
 NavMeshAgent:
   m_ObjectHideFlags: 0

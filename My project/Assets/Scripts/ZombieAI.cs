@@ -91,7 +91,7 @@ public class ZombieAI : MonoBehaviour
     {
         Debug.LogError("Could not load xpGem prefab from Resources!");
     }
-
+    WaveManager.Instance.ZombieDied();
     Destroy(gameObject);
     Debug.Log("Zombie Died!");
 }
