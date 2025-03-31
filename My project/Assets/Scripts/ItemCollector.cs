@@ -14,7 +14,7 @@ public class ItemCollector : MonoBehaviour
             other.CompareTag("MetalPile") || 
             other.CompareTag("Energy") || 
             other.CompareTag("Tool"))
-            )
+       
         {
             collectedCount++;
             Destroy(other.gameObject); // Despawn the object
