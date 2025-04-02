@@ -1720,6 +1720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Standing
       objectReference: {fileID: 0}
+    - target: {fileID: 5181277565492519210, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7357594700389493047, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
       propertyPath: maxHealth
       value: 50
@@ -1874,6 +1878,10 @@ PrefabInstance:
     - target: {fileID: 3348838115150866381, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
       propertyPath: m_Name
       value: Zombie Standing (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181277565492519210, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7357594700389493047, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
       propertyPath: maxHealth
@@ -2442,8 +2450,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.03402233
-  m_Center: {x: 0.62130356, y: 0, z: 0}
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &847372709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3984,7 +3992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852227376715959704, guid: 17d9e3ba6fadef040b5c7c65db095d55, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6814401598694132093, guid: 17d9e3ba6fadef040b5c7c65db095d55, type: 3}
       propertyPath: m_Radius
@@ -5147,6 +5155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Standing (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5181277565492519210, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7357594700389493047, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
       propertyPath: maxHealth
       value: 50
@@ -5286,11 +5298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 361598542925403814, guid: 17d9e3ba6fadef040b5c7c65db095d55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.031934977
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 361598542925403814, guid: 17d9e3ba6fadef040b5c7c65db095d55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.29
+      value: -29.46
       objectReference: {fileID: 0}
     - target: {fileID: 361598542925403814, guid: 17d9e3ba6fadef040b5c7c65db095d55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5322,7 +5334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852227376715959704, guid: 17d9e3ba6fadef040b5c7c65db095d55, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6814401598694132093, guid: 17d9e3ba6fadef040b5c7c65db095d55, type: 3}
       propertyPath: m_Radius
@@ -5854,6 +5866,10 @@ PrefabInstance:
     - target: {fileID: 3348838115150866381, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
       propertyPath: m_Name
       value: Zombie1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181277565492519210, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7357594700389493047, guid: 3937d64d87d2a7a49b3e110c3292417f, type: 3}
       propertyPath: maxHealth
