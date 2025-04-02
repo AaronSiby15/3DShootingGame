@@ -2770,7 +2770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentXP: 0
-  level: 1
+  level: 4
   maxXP: 100
   xpText: {fileID: 969287403}
   levelText: {fileID: 1812233859}
