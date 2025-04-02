@@ -5,26 +5,37 @@ public class Bullet : MonoBehaviour
     public float damage = 10f;
     public float lifeTime = 5f;
 
-    private void Start()
+    public float Damage
     {
-       // Destroy(gameObject, lifeTime);
+        get { return damage; }
+        set { damage = value; }
+    }
+
+    public float LifeTime
+    {
+        get { return lifeTime; }
+        set { lifeTime = value; }
+    }
+
+    public Bullet(float damage, float lifeTime)
+    {
+        this.damage = damage;
+        this.lifeTime = lifeTime;
     }
 
    private void OnTriggerEnter(Collider other)
-{
-    if (other.CompareTag("Zombie"))
     {
-        Debug.Log("Triggered zombie!");
-
-        ZombieAI zombie = other.GetComponent<ZombieAI>();
-        if (zombie != null)
+        if (other.CompareTag("Zombie"))
         {
-            zombie.TakeDamage(damage);
-            Destroy(gameObject);
+            Debug.Log("Triggered zombie!");
+
+            ZombieAI zombie = other.GetComponent<ZombieAI>();
+            if (zombie != null)
+            {
+                zombie.TakeDamage(damage);
+                Destroy(gameObject);
+            }
         }
     }
 }
-
- 
-    }
 

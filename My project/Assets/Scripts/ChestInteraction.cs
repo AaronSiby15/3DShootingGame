@@ -8,6 +8,24 @@ public class ChestInteraction : MonoBehaviour
     private bool isOpen = false;
     private bool isPlayerNear = false;  // To track if the player is near the chest
 
+    public bool IsOpen
+    {
+        get { return isOpen; }
+        set { isOpen = value; }
+    }
+
+    public bool IsPlayerNear
+    {
+        get { return isPlayerNear; }
+        set { isPlayerNear = value; }
+    }
+
+    public ChestInteraction()
+    {
+        this.isOpen = false;
+        this.isPlayerNear = false;
+    }
+    
     void Update()
     {
         // Check for interaction (e.g., pressing the E key) only when the player is near
