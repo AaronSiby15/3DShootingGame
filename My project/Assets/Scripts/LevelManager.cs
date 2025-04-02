@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
 
     //void RespawnPlayer(GameObject player)
     //{
-    //    player.transform.position = respawnPoint;
-    //}
+     //  player.transform.position = respawnPoint;
+   // }
 
 }
