@@ -24,6 +24,8 @@ TagManager:
   - MetalPile
   - Pistol
   - Lvl1Gem
+  - maxHealth
+  - waveText
   layers:
   - Default
   - TransparentFX

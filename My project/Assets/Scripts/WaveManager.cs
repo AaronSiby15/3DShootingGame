@@ -8,13 +8,14 @@ public class WaveManager : MonoBehaviour
 
     public Transform[] spawnPoints;
     public GameObject zombiePrefab;
-    public GameObject lvl1Gem; 
+    public GameObject lvl1Gem;
 
     private int[] zombiesPerWave = { 1, 7, 20 };
     private int currentWaveIndex = 0;
     private int zombiesAlive = 0;
+    private bool waveInProgress = false;
 
-    private TextMeshProUGUI waveText;
+    private TextMeshProUGUI waveText; 
 
     void Awake()
     {
@@ -23,17 +24,16 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
-        GameObject waveTextObj = GameObject.FindGameObjectWithTag("currentWave");
+        GameObject waveTextObj = GameObject.FindGameObjectWithTag("waveText"); 
         if (waveTextObj != null)
         {
             waveText = waveTextObj.GetComponent<TextMeshProUGUI>();
         }
         else
         {
-            Debug.LogError("No UI element found with tag 'currentWave'");
+            Debug.LogError("No UI element found with tag 'waveText'"); 
         }
 
-        
         if (lvl1Gem != null)
         {
             lvl1Gem.SetActive(false);
@@ -44,26 +44,35 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator StartNextWave()
     {
-        yield return new WaitForSeconds(2f); // Short delay before wave starts
+        yield return new WaitForSeconds(2f);
 
         if (currentWaveIndex < zombiesPerWave.Length)
         {
             int zombieCount = zombiesPerWave[currentWaveIndex];
             UpdateWaveUI(currentWaveIndex + 1);
+            currentWaveIndex++;
+            zombiesAlive = zombieCount;
+            waveInProgress = true;
 
             for (int i = 0; i < zombieCount; i++)
             {
                 SpawnZombie();
-                yield return new WaitForSeconds(0.2f); 
+                yield return new WaitForSeconds(0.2f);
             }
         }
         else
         {
+            waveInProgress = false;
             Debug.Log("All waves complete!");
+
+            if (waveText != null)
+            {
+                waveText.text = "Forest Zombies Defeated!\nCollect the Forest Gem!";
+            }
 
             if (lvl1Gem != null)
             {
-                lvl1Gem.SetActive(true); 
+                lvl1Gem.SetActive(true);
                 Debug.Log("Lvl1Gem activated!");
             }
         }
@@ -79,16 +88,17 @@ public class WaveManager : MonoBehaviour
 
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(zombiePrefab, spawnPoint.position, Quaternion.identity);
-        zombiesAlive++;
     }
 
     public void ZombieDied()
     {
+        if (!waveInProgress) return;
+
         zombiesAlive--;
 
         if (zombiesAlive <= 0)
         {
-            currentWaveIndex++;
+            waveInProgress = false;
             StartCoroutine(StartNextWave());
         }
     }
@@ -97,8 +107,8 @@ public class WaveManager : MonoBehaviour
     {
         if (waveText != null)
         {
-            waveText.text = waveNumber.ToString();
-            Debug.Log("Updated wave number to: " + waveNumber);
+            waveText.text = "Wave: " + waveNumber + "/" + zombiesPerWave.Length;
+            Debug.Log("Updated wave text to: Wave " + waveNumber + "/" + zombiesPerWave.Length);
         }
     }
 }

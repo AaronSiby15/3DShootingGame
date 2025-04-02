@@ -9,6 +9,8 @@ public class XPManager : MonoBehaviour
 
     public TMP_Text xpText;
     public TMP_Text levelText;
+    
+    public PlayerHealth playerHealth;
 
     private void Start()
     {
@@ -23,6 +25,11 @@ public class XPManager : MonoBehaviour
         {
             currentXP -= maxXP;
             level++;
+
+            if (playerHealth != null)
+            {
+                playerHealth.IncreaseMaxHealth(10); 
+            }
         }
 
         UpdateUI();

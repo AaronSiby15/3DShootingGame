@@ -6,21 +6,20 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
     private TMP_Text healthText;
+    
 
     void Start()
     {
-        currentHealth = maxHealth; // Set health to max at the start
-        
+        currentHealth = maxHealth;
+
         GameObject healthObject = GameObject.FindGameObjectWithTag("healthTag");
         if (healthObject != null)
         {
             healthText = healthObject.GetComponent<TMP_Text>();
-            UpdateHealthUI();
         }
-        else
-        {
-            Debug.LogWarning("No TextMeshPro object with tag 'healthTag' found!");
-        }
+        
+
+        UpdateHealthUI();
     }
 
     public void TakeDamage(int damage)
@@ -55,11 +54,18 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthUI();
     }
     
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount; 
+        UpdateHealthUI();
+    }
+    
     private void UpdateHealthUI()
     {
         if (healthText != null)
         {
-            healthText.text = currentHealth.ToString();
+            healthText.text = $"HP: {currentHealth} / {maxHealth}";
         }
     }
 }
