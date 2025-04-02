@@ -12,6 +12,9 @@ public class ZombieAI : MonoBehaviour
     public float attackRange = 2f;
     public float attackCooldown = 1.5f;
     public int damage = 10;
+    private float agroRange = 20f;
+    private float stopChasingRange = 25f;
+    private bool isPlayerInRange;
     public GameObject xpGem;
 
     private float lastAttackTime;
@@ -25,7 +28,7 @@ public class ZombieAI : MonoBehaviour
         currentHealth = maxHealth;
 
         agent = GetComponent<NavMeshAgent>();
-
+        agent.isStopped = true;
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
@@ -48,6 +51,27 @@ public class ZombieAI : MonoBehaviour
             {
                 AttackPlayer();
             }
+
+            if (distanceToPlayer <= agroRange)
+            {
+                // Start chasing
+                isPlayerInRange = true;
+                agent.isStopped = false;
+                agent.SetDestination(player.position);
+            }
+            else if (distanceToPlayer >= stopChasingRange)
+            {
+                // Stop chasing if out of range
+                isPlayerInRange = false;
+                agent.isStopped = true;
+                agent.ResetPath();
+            }
+            else if (isPlayerInRange)
+            {
+                // Continue chasing if already chasing
+                agent.SetDestination(player.position);
+            }
+
         }
     }
 
@@ -79,20 +103,20 @@ public class ZombieAI : MonoBehaviour
     }
 
     void Die()
-{
-    GameObject xpGemPrefab = Resources.Load<GameObject>("xpSphere");
-
-    if (xpGemPrefab != null)
     {
-        Instantiate(xpGemPrefab, transform.position + Vector3.up, Quaternion.identity);
-        Debug.Log("Spawned XP Gem");
-    }
-    else
-    {
-        Debug.LogError("Could not load xpGem prefab from Resources!");
-    }
+        GameObject xpGemPrefab = Resources.Load<GameObject>("xpSphere");
 
-    Destroy(gameObject);
-    Debug.Log("Zombie Died!");
-}
+        if (xpGemPrefab != null)
+        {
+            Instantiate(xpGemPrefab, transform.position + Vector3.up, Quaternion.identity);
+            Debug.Log("Spawned XP Gem");
+        }
+        else
+        {
+            Debug.LogError("Could not load xpGem prefab from Resources!");
+        }
+
+        Destroy(gameObject);
+        Debug.Log("Zombie Died!");
+    }
 }
