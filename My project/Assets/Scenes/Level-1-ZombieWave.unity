@@ -309,20 +309,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4730510602840588460, guid: 12e6dfaff51e98044854b11ca13261ed, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5758277886335488726, guid: 12e6dfaff51e98044854b11ca13261ed, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 1123495843}
     - target: {fileID: 8331192452383563626, guid: 12e6dfaff51e98044854b11ca13261ed, type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331192452383563626, guid: 12e6dfaff51e98044854b11ca13261ed, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331192452383563626, guid: 12e6dfaff51e98044854b11ca13261ed, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8767406383870694007, guid: 12e6dfaff51e98044854b11ca13261ed, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 1123495843}
-    m_RemovedComponents:
-    - {fileID: 4730510602840588460, guid: 12e6dfaff51e98044854b11ca13261ed, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

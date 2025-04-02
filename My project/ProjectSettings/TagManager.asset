@@ -26,6 +26,10 @@ TagManager:
   - Lvl1Gem
   - maxHealth
   - waveText
+  - hint
+  - timer
+  - itemStatus
+  - item
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Intro.unity
     guid: 4e76872b7a8374f4186604a7581ef92d
   - enabled: 1
-    path: Assets/Scenes/Level-1-ItemCollection.unity
+    path: Assets/Scenes/Level-1-Z.unity
     guid: 59d8e4bedd442464e9ad55c4d21ff499
   - enabled: 1
     path: Assets/Scenes/Level-1-ZombieWave.unity
