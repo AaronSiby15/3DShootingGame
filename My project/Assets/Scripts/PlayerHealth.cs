@@ -3,7 +3,7 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public static int maxHealth = 100;
     private int currentHealth;
     private TMP_Text healthText;
     
@@ -17,7 +17,6 @@ public class PlayerHealth : MonoBehaviour
         {
             healthText = healthObject.GetComponent<TMP_Text>();
         }
-        
 
         UpdateHealthUI();
     }

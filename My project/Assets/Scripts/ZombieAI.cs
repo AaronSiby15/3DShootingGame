@@ -13,6 +13,7 @@ public class ZombieAI : MonoBehaviour
     public float attackCooldown = 1.5f;
     public int damage = 10;
     public GameObject xpGem;
+    public int speed = 5;
 
     private float lastAttackTime;
 
@@ -25,6 +26,7 @@ public class ZombieAI : MonoBehaviour
         currentHealth = maxHealth;
 
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed; // Set movement speed based on the public 'speed' variable
 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
