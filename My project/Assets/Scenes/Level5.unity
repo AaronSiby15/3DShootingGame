@@ -15903,22 +15903,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2202873001519750170, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2836956032548307676, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8979906232266965413, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
-      propertyPath: moveSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8979906232266965413, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
-      propertyPath: playerCamera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4957605393579145644, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
       propertyPath: m_Name
       value: HumanMale_Character_Free (1)
@@ -15966,6 +15950,22 @@ PrefabInstance:
     - target: {fileID: 4957605393579145646, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2202873001519750170, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836956032548307676, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979906232266965413, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
+      propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979906232266965413, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
+      propertyPath: playerCamera
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 938207936080776967, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
@@ -16763,7 +16763,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5165422914870500356, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
   m_PrefabInstance: {fileID: 6712893242610853725}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1217319816
+--- !u!114 &1217319821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16775,7 +16775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8726bf072843294381565d63f5ac2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2
+  attackRange: 7
   attackCooldown: 1.5
   damage: 50
   xpGem: {fileID: 0}
@@ -32300,9 +32300,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3404858220120408818, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404858220120408818, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3515815821925531592, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515815821925531592, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 6036270873030077194, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32351,7 +32363,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5165422914870500356, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1217319816}
+      addedObject: {fileID: 1217319821}
   m_SourcePrefab: {fileID: 100100000, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

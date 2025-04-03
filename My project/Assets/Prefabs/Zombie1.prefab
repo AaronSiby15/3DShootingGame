@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 513414888067987582}
   - component: {fileID: 3034599280246765822}
+  - component: {fileID: 3552264196214238327}
   m_Layer: 0
   m_Name: Z_Body
   m_TagString: Untagged
@@ -92,6 +93,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.2738102, y: 0.04886008, z: 0.000000022351742}
     m_Extent: {x: 0.19489695, y: 0.16547251, z: 0.15937948}
   m_DirtyAABB: 0
+--- !u!114 &3552264196214238327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364468371679584314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ab5b2e2b264e642a6bff713227052f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 2
+  attackCooldown: 1.5
+  damage: 10
+  xpGem: {fileID: 8040786603317731001, guid: 82bc25878c2043c4ca9fc2f4bd287a62, type: 3}
+  speed: 5
+  maxHealth: 50
 --- !u!1 &497845116022008895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2707,6 +2726,7 @@ MonoBehaviour:
   attackCooldown: 1.5
   damage: 10
   xpGem: {fileID: 0}
+  speed: 3
   maxHealth: 50
 --- !u!1 &6963711850084803867
 GameObject:
