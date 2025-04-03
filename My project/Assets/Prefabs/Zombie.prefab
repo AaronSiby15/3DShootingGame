@@ -936,7 +936,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8110624505589043129}
   - component: {fileID: 1543389241906084541}
-  - component: {fileID: 2027584227407454822}
   - component: {fileID: 8551021643556333019}
   - component: {fileID: 3285065942735940759}
   - component: {fileID: 5233781701060931720}
@@ -999,23 +998,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2027584227407454822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2676369383221446473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38ab5b2e2b264e642a6bff713227052f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 2
-  attackCooldown: 1.5
-  damage: 10
-  xpGem: {fileID: 0}
-  maxHealth: 50
 --- !u!195 &8551021643556333019
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1077,6 +1059,7 @@ MonoBehaviour:
   attackCooldown: 1.5
   damage: 10
   xpGem: {fileID: 8040786603317731001, guid: 82bc25878c2043c4ca9fc2f4bd287a62, type: 3}
+  speed: 3
   maxHealth: 50
 --- !u!1 &2688184000653200948
 GameObject:

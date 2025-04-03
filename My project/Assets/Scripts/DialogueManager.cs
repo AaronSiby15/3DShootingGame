@@ -5,12 +5,15 @@ using System.Collections.Generic;
 public abstract class DialogueManager : MonoBehaviour
 {
     protected bool dialogueZone = false;
+    
+    [Header("Assign in Inspector")]
     public GameObject d_template; 
-    public GameObject canva;      
+    public GameObject canva; 
 
     private List<GameObject> dialogueLines = new List<GameObject>();
     private int currentIndex = 0;
     private bool dialogueStarted = false;
+    private bool hasTalked = false; 
 
     protected virtual void Update()
     {
@@ -28,6 +31,12 @@ public abstract class DialogueManager : MonoBehaviour
 
     void StartDialogue()
     {
+        GameObject[] allCanvases = GameObject.FindGameObjectsWithTag("DialogueCanvas");
+        foreach (GameObject canvas in allCanvases)
+        {
+            canvas.SetActive(false);
+        }
+
         canva.SetActive(true);
         ClearOldDialogue();
 
@@ -39,12 +48,11 @@ public abstract class DialogueManager : MonoBehaviour
         }
 
         currentIndex = 0;
-        ToggleLine(currentIndex, true); 
+        ToggleLine(currentIndex, true);
     }
 
     void AdvanceDialogue()
     {
-        
         if (currentIndex < dialogueLines.Count)
         {
             ToggleLine(currentIndex, false);
@@ -52,7 +60,6 @@ public abstract class DialogueManager : MonoBehaviour
 
         currentIndex++;
 
-        
         if (currentIndex < dialogueLines.Count)
         {
             ToggleLine(currentIndex, true);
@@ -87,12 +94,19 @@ public abstract class DialogueManager : MonoBehaviour
         line.SetActive(false);
         dialogueLines.Add(line);
     }
-
-    protected virtual void EndDialogue()
+    
+    public virtual void EndDialogue()
     {
         canva.SetActive(false);
         currentIndex = 0;
         dialogueStarted = false;
+
+        // Only count this NPC once
+        if (!hasTalked)
+        {
+            hasTalked = true;
+            NPCTracker.Instance.NPCInteracted();
+        }
     }
 
     protected abstract string[] GetDialogueLines();
@@ -110,6 +124,7 @@ public abstract class DialogueManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             dialogueZone = false;
+            EndDialogue();
         }
     }
 }

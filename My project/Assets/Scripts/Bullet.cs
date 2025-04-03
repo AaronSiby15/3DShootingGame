@@ -30,9 +30,16 @@ public class Bullet : MonoBehaviour
             Debug.Log("Triggered zombie!");
 
             ZombieAI zombie = other.GetComponent<ZombieAI>();
+            ZombieAINonWave zombie2 = other.GetComponent<ZombieAINonWave>();
             if (zombie != null)
             {
                 zombie.TakeDamage(damage);
+                Destroy(gameObject);
+            }
+
+            if (zombie2 != null)
+            {
+                zombie2.TakeDamage(damage);
                 Destroy(gameObject);
             }
         }

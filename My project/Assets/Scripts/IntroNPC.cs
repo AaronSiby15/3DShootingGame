@@ -24,7 +24,7 @@ public class IntroNPC : DialogueManager
         };
     }
     
-    protected override void EndDialogue()
+    public override void EndDialogue()
     {
         base.EndDialogue(); // Keep the original cleanup logic
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load the next scene

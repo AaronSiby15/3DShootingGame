@@ -1703,7 +1703,7 @@ MonoBehaviour:
   - {fileID: 1481871847}
   - {fileID: 827051281}
   - {fileID: 1943003818}
-  zombiePrefab: {fileID: 6955317910203439791, guid: 17d9e3ba6fadef040b5c7c65db095d55, type: 3}
+  zombiePrefab: {fileID: 2676369383221446473, guid: aae81112dfb3de34bb2a14cd6231b90f, type: 3}
   lvl1Gem: {fileID: 1991030610}
 --- !u!4 &1279012139
 Transform:

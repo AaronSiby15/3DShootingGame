@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class ZombieAI : MonoBehaviour
+public class ZombieAINonWave : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Transform player;
@@ -14,7 +14,9 @@ public class ZombieAI : MonoBehaviour
     public int damage = 10;
     public GameObject xpGem;
     public int speed = 3;
-
+    private float agroRange = 20f;
+    private float stopChasingRange = 25f;
+    private bool isPlayerInRange;
     private float lastAttackTime;
 
     [Header("Health")]
@@ -26,7 +28,6 @@ public class ZombieAI : MonoBehaviour
         currentHealth = maxHealth;
 
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed; // Set movement speed based on the public 'speed' variable
 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
@@ -49,6 +50,25 @@ public class ZombieAI : MonoBehaviour
             if (distanceToPlayer <= attackRange)
             {
                 AttackPlayer();
+            }
+            if (distanceToPlayer <= agroRange)
+            {
+                // Start chasing
+                isPlayerInRange = true;
+                agent.isStopped = false;
+                agent.SetDestination(player.position);
+            }
+            else if (distanceToPlayer >= stopChasingRange)
+            {
+                // Stop chasing if out of range
+                isPlayerInRange = false;
+                agent.isStopped = true;
+                agent.ResetPath();
+            }
+            else if (isPlayerInRange)
+            {
+                // Continue chasing if already chasing
+                agent.SetDestination(player.position);
             }
         }
     }
@@ -93,7 +113,7 @@ public class ZombieAI : MonoBehaviour
     {
         Debug.LogError("Could not load xpGem prefab from Resources!");
     }
-    WaveManager.Instance.ZombieDied();
+
     Destroy(gameObject);
     Debug.Log("Zombie Died!");
 }
