@@ -12,10 +12,11 @@ public class ZombieAI : MonoBehaviour
     public float attackRange = 2f;
     public float attackCooldown = 1.5f;
     public int damage = 10;
+    public GameObject xpGem;
+    public int speed = 5;
     private float agroRange = 20f;
     private float stopChasingRange = 25f;
     private bool isPlayerInRange;
-    public GameObject xpGem;
 
     private float lastAttackTime;
 
@@ -28,7 +29,8 @@ public class ZombieAI : MonoBehaviour
         currentHealth = maxHealth;
 
         agent = GetComponent<NavMeshAgent>();
-        agent.isStopped = true;
+        agent.speed = speed; // Set movement speed based on the public 'speed' variable
+
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
@@ -51,7 +53,7 @@ public class ZombieAI : MonoBehaviour
             {
                 AttackPlayer();
             }
-
+            
             if (distanceToPlayer <= agroRange)
             {
                 // Start chasing
@@ -71,7 +73,6 @@ public class ZombieAI : MonoBehaviour
                 // Continue chasing if already chasing
                 agent.SetDestination(player.position);
             }
-
         }
     }
 
@@ -103,20 +104,20 @@ public class ZombieAI : MonoBehaviour
     }
 
     void Die()
+{
+    GameObject xpGemPrefab = Resources.Load<GameObject>("xpSphere");
+
+    if (xpGemPrefab != null)
     {
-        GameObject xpGemPrefab = Resources.Load<GameObject>("xpSphere");
-
-        if (xpGemPrefab != null)
-        {
-            Instantiate(xpGemPrefab, transform.position + Vector3.up, Quaternion.identity);
-            Debug.Log("Spawned XP Gem");
-        }
-        else
-        {
-            Debug.LogError("Could not load xpGem prefab from Resources!");
-        }
-
-        Destroy(gameObject);
-        Debug.Log("Zombie Died!");
+        Instantiate(xpGemPrefab, transform.position + Vector3.up, Quaternion.identity);
+        Debug.Log("Spawned XP Gem");
     }
+    else
+    {
+        Debug.LogError("Could not load xpGem prefab from Resources!");
+    }
+    WaveManager.Instance.ZombieDied();
+    Destroy(gameObject);
+    Debug.Log("Zombie Died!");
+}
 }

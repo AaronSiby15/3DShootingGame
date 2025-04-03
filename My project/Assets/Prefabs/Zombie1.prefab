@@ -2587,7 +2587,6 @@ GameObject:
   - component: {fileID: 7041670208043141129}
   - component: {fileID: 2852227376715959704}
   - component: {fileID: 6814401598694132093}
-  - component: {fileID: 6463341045554970764}
   m_Layer: 0
   m_Name: Zombie1
   m_TagString: Zombie
@@ -2662,6 +2661,8 @@ MonoBehaviour:
   attackRange: 2
   attackCooldown: 1.5
   damage: 10
+  xpGem: {fileID: 0}
+  speed: 3
   maxHealth: 50
 --- !u!195 &2852227376715959704
 NavMeshAgent:
@@ -2708,22 +2709,6 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6463341045554970764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6955317910203439791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38ab5b2e2b264e642a6bff713227052f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 2
-  attackCooldown: 1.5
-  damage: 10
-  maxHealth: 50
 --- !u!1 &6963711850084803867
 GameObject:
   m_ObjectHideFlags: 0
