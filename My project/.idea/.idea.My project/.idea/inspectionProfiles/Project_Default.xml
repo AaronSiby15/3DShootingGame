@@ -1,0 +1,10 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+<<<<<<< HEAD
+    <inspection_tool class="IllegalJobDependency" enabled="true" level="ERROR" enabled_by_default="true" />
+=======
+    <inspection_tool class="TodoComment" enabled="false" level="WARNING" enabled_by_default="false" />
+>>>>>>> 0f0df100ff6c43ebd10839422dad27147e836a00
+  </profile>
+</component>

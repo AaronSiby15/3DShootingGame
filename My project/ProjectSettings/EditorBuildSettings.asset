@@ -4,7 +4,34 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StarterPage.unity
+    guid: 1157e19fa0d204499a1b48d4ac9d5310
+  - enabled: 1
+    path: Assets/Scenes/customization.unity
+    guid: cd8525548730546c785d85168664e98a
+  - enabled: 1
+    path: Assets/Scenes/Game Intro.unity
+    guid: 4e76872b7a8374f4186604a7581ef92d
+  - enabled: 1
+    path: Assets/Scenes/Level-1-ItemCollection.unity
+    guid: 954daf16e8391a2479e506874d35e9d5
+  - enabled: 1
+    path: Assets/Scenes/Level-1-ZombieWave.unity
+    guid: f463c2f7c9153ea42b4fd61ec386023c
+  - enabled: 1
+    path: Assets/Scenes/Beach.unity
+    guid: 5d0e4b171c6ec402194697a0dc5f19c6
+  - enabled: 1
+    path: Assets/Scenes/DemoScene.unity
+    guid: a0f490b90d27f064da1333bd9f15e4eb
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 30fb6719a9eb1d84a807a42d598b16f8
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: b91f49e1da61a594bbee6991182a8a4a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_UseUCBPForAssetBundles: 0
