@@ -1134,6 +1134,7 @@ MonoBehaviour:
   maxXP: 100
   xpText: {fileID: 464149944}
   levelText: {fileID: 167519099}
+  playerHealth: {fileID: 578156522}
 --- !u!1 &873316170
 GameObject:
   m_ObjectHideFlags: 0
