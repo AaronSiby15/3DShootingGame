@@ -30,64 +30,50 @@ public class FirstPersonMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.LeftControl))
         {
             moveSpeed = fastSpeed;
-            animator.SetBool("Sprint", true);
+            animator.SetTrigger("Sprint");
         }
         else
         {
             moveSpeed = baseSpeed;
-            animator.SetBool("Sprint", false);
-            cancelAnimations();
         }
 
         // Movement input & animations
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
         {
-            animator.SetBool("Left", true);
+            animator.SetTrigger("Left");
         } else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
-            animator.SetBool("Right", true);
+            animator.SetTrigger("Right");
         }
-        else
-        {
-            cancelAnimations();
-        }
+
         if (Input.GetKey(KeyCode.W))
         {
             inputVector.y += 1;
-            animator.SetBool("Forward", true);
+            animator.SetTrigger("Forward");
         }
-        else
-        {
-            cancelAnimations();
-        }
+
         if (Input.GetKey(KeyCode.S))
         {
             inputVector.y -= 1;
-            animator.SetBool("Backward", true);
+            animator.SetTrigger("Backward");
         }
-        else
-        {
-            cancelAnimations();
-        }
+
         if (Input.GetKey(KeyCode.A))
         {
             inputVector.x -= 1;
-            animator.SetBool("Left", true);
+            animator.SetTrigger("Left");
         }
-        else
-        {
-            cancelAnimations();
-        }
+
         if (Input.GetKey(KeyCode.D))
         {
             inputVector.x += 1;
-            animator.SetBool("Right", true);
+            animator.SetTrigger("Right");
         }
-        else
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) &&
+            !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.LeftShift))
         {
-            cancelAnimations();
+            animator.SetTrigger("Stop");
         }
-
 
         // Normalize input and move
         inputVector = inputVector.normalized;
@@ -117,20 +103,6 @@ public class FirstPersonMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-        }
-    }
-
-    private void cancelAnimations()
-    {
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) &&
-            !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift) &&
-            !Input.GetKey(KeyCode.LeftControl))
-        {
-            animator.SetBool("Forward", false);
-            animator.SetBool("Backward", false);
-            animator.SetBool("Left", false);
-            animator.SetBool("Right", false);
-            animator.Play("Idle");
         }
     }
 }

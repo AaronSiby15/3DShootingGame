@@ -22,12 +22,15 @@ public class ZombieAINonWave : MonoBehaviour
     [Header("Health")]
     public float maxHealth = 50f;
     private float currentHealth;
+    
+    private Animator animator;
 
     void Start()
     {
         currentHealth = maxHealth;
 
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
@@ -49,6 +52,7 @@ public class ZombieAINonWave : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer <= attackRange)
             {
+                animator.SetTrigger("isAttacking");
                 AttackPlayer();
             }
             if (distanceToPlayer <= agroRange)
@@ -57,6 +61,7 @@ public class ZombieAINonWave : MonoBehaviour
                 isPlayerInRange = true;
                 agent.isStopped = false;
                 agent.SetDestination(player.position);
+                animator.SetTrigger("isAgro");
             }
             else if (distanceToPlayer >= stopChasingRange)
             {
@@ -64,6 +69,7 @@ public class ZombieAINonWave : MonoBehaviour
                 isPlayerInRange = false;
                 agent.isStopped = true;
                 agent.ResetPath();
+                animator.SetTrigger("isFar");
             }
             else if (isPlayerInRange)
             {
@@ -103,7 +109,7 @@ public class ZombieAINonWave : MonoBehaviour
     void Die()
 {
     GameObject xpGemPrefab = Resources.Load<GameObject>("xpSphere");
-
+    animator.SetTrigger("isDead");
     if (xpGemPrefab != null)
     {
         Instantiate(xpGemPrefab, transform.position + Vector3.up, Quaternion.identity);

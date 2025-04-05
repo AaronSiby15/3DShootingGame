@@ -15903,6 +15903,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2202873001519750170, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836956032548307676, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979906232266965413, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
+      propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979906232266965413, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4957605393579145644, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
       propertyPath: m_Name
       value: HumanMale_Character_Free (1)
@@ -15950,22 +15966,6 @@ PrefabInstance:
     - target: {fileID: 4957605393579145646, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202873001519750170, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2836956032548307676, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8979906232266965413, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
-      propertyPath: moveSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8979906232266965413, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
-      propertyPath: playerCamera
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 938207936080776967, guid: be0e9eab8a8e75446b523756862c8a70, type: 3}
@@ -32300,6 +32300,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1395469978145926686, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3404858220120408818, guid: d37c1b05c2e134b4691b3b3dc2a20d69, type: 3}
       propertyPath: m_Center.x
       value: 0
