@@ -12,4 +12,18 @@ public class Level4Dialogue1 : DialogueManager
                 "NPC: Quick the first one is in the surgery room upstairs!"
             };
         }
+        
+        public override void EndDialogue()
+        {
+            canva.SetActive(false);
+            currentIndex = 0;
+            dialogueStarted = false;
+
+            // Only count this NPC once
+            if (!hasTalked)
+            {
+                hasTalked = true;
+                NPCTracker.Instance.NPCInteracted();
+            }
+        }
     }
