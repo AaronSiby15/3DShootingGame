@@ -3,6 +3,17 @@ using TMPro;
 
 public class XPManager : MonoBehaviour
 {
+    
+    public static XPManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
+
     public int currentXP = 0;
     public int level = 1;
     public int maxXP = 100;
