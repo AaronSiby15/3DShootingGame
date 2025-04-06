@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = currentHealth.ToString();
+            healthText.text = $"HP: {currentHealth} / {maxHealth}";
         }
     }
 }
