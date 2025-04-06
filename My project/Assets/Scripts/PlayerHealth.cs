@@ -10,26 +10,21 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth; // Set health to max at the start
-        
+        currentHealth = maxHealth;
+
         GameObject healthObject = GameObject.FindGameObjectWithTag("healthTag");
         if (healthObject != null)
         {
             healthText = healthObject.GetComponent<TMP_Text>();
-            UpdateHealthUI();
         }
-        else
-        {
-            Debug.LogWarning("No TextMeshPro object with tag 'healthTag' found!");
-        }
+
+        UpdateHealthUI();
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
-        Debug.Log("Player Health: " + currentHealth);
-        
         UpdateHealthUI();
 
         if (currentHealth <= 0)
@@ -40,7 +35,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player has died!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -51,11 +45,16 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        Debug.Log("Player healed: " + currentHealth);
-        
         UpdateHealthUI();
     }
-    
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount; // Optional: heal when leveling up
+        UpdateHealthUI();
+    }
+
     private void UpdateHealthUI()
     {
         if (healthText != null)

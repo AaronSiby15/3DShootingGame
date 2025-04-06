@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class ZombieAINonWave : MonoBehaviour
+public class ZombieAINonWave : MonoBehaviour, IScalableEnemy
 {
     private NavMeshAgent agent;
     private Transform player;
@@ -27,7 +27,18 @@ public class ZombieAINonWave : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
+        
+        if (XPManager.Instance != null)
+        {
+            ScaleStats(XPManager.Instance.level);
+        }
+        else
+        {
+            Debug.LogWarning("XPManager not found. Using default zombie stats.");
+            maxHealth = 50f;
+            damage = 10;
+            currentHealth = maxHealth;
+        }
 
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -123,4 +134,22 @@ public class ZombieAINonWave : MonoBehaviour
     Destroy(gameObject);
     Debug.Log("Zombie Died!");
 }
+    
+    public void ScaleStats(int playerLevel)
+    {
+        maxHealth = 50f + (playerLevel * 10); // You can customize scaling logic
+        damage = 10 + (playerLevel * 2);      // You can make this steeper or flatter
+        currentHealth = maxHealth;
+    }
+
+    public float GetHealth()
+    {
+        return currentHealth;
+    }
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+
 }

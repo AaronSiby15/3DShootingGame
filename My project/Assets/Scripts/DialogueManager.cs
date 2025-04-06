@@ -11,9 +11,9 @@ public abstract class DialogueManager : MonoBehaviour
     public GameObject canva; 
 
     private List<GameObject> dialogueLines = new List<GameObject>();
-    private int currentIndex = 0;
-    private bool dialogueStarted = false;
-    private bool hasTalked = false; 
+    protected  int currentIndex = 0;
+    protected bool dialogueStarted = false;
+    protected bool hasTalked = false; 
 
     protected virtual void Update()
     {
@@ -101,12 +101,7 @@ public abstract class DialogueManager : MonoBehaviour
         currentIndex = 0;
         dialogueStarted = false;
 
-        // Only count this NPC once
-        if (!hasTalked)
-        {
-            hasTalked = true;
-            NPCTracker.Instance.NPCInteracted();
-        }
+       
     }
 
     protected abstract string[] GetDialogueLines();

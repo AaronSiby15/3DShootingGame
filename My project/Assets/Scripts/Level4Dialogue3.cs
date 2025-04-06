@@ -16,4 +16,18 @@ public class Level4Dialogue3 : DialogueManager
                 "NPC: There is a portal which transports you to the castle! Go Save the World!!!"
             };
         }
+        
+        public override void EndDialogue()
+        {
+            canva.SetActive(false);
+            currentIndex = 0;
+            dialogueStarted = false;
+
+            // Only count this NPC once
+            if (!hasTalked)
+            {
+                hasTalked = true;
+                NPCTracker.Instance.NPCInteracted();
+            }
+        }
     }
