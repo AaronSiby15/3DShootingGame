@@ -51,15 +51,6 @@ The game combines **combat**, **puzzle-solving**, **exploration**, and **NPC-dri
 
 ---
 
-## 🐞 Bug Fixes & Updates
-- Fixed **Animator Controller conflicts** (switched bools → triggers).  
-- Unified **character prefab** (XP persists between levels).  
-- Zombies now include **working animations**.  
-- Gems become visible only after completing NPC tasks.  
-- Fixed character customization bugs.  
-
----
-
 ## 📹 Demo Videos
 - **Level 1 (Forest):** [Watch here](https://youtu.be/3kTJLRC_P6E)  
 - **Level 2 (Beach):** [Watch here](https://youtu.be/N6vj3WkaVSA)  
